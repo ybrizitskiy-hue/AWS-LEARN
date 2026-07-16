@@ -1,39 +1,15 @@
-# AWS DevOps Quest — Cloudflare Pages Web App
+# AWS DevOps Quest - Cloudflare Pages fixed package
 
-A dependency-free, installable learning web app containing 15 stages, 45 substantive lessons, 60 checkpoint questions, hands-on missions, XP, streaks, locked progression, local progress storage, export/import, responsive design, and offline caching.
+## Direct Upload
+Upload the ZIP named `AWS_DevOps_Quest_CF_Pages_FIXED_ROOT.zip` directly in Cloudflare Pages.
+The ZIP has `index.html` at its root. Do not put the files inside another folder before uploading.
 
-## Run locally
+## Git integration
+Commit these files at the repository root. Cloudflare Pages settings:
 
-```bash
-python3 -m http.server 8080
-```
+- Framework preset: None
+- Build command: `exit 0` (or leave blank)
+- Build output directory: `.`
+- Root directory: leave blank
 
-Open `http://localhost:8080`.
-
-## Deploy to Cloudflare Pages from Git
-
-1. Push this folder to a GitHub or GitLab repository.
-2. In Cloudflare, open **Workers & Pages** and create a Pages project from the repository.
-3. Use production branch `main`.
-4. Build command: `exit 0`
-5. Build output directory: `.`
-6. Deploy.
-
-The app uses hash routing, so it works as a static site without a server-side router. `_headers` adds basic security headers, `_redirects` provides an SPA fallback, and the service worker enables offline use after the first visit.
-
-## Data model
-
-Progress is stored in browser `localStorage`. Use **Settings → Export progress** before clearing site data or changing devices. Import restores the JSON backup. This release has no login or server database.
-
-## Content scope
-
-The curriculum is production-shaped but does not provision AWS automatically. Each lesson teaches a concept and gives a hands-on mission to perform in your own project repository and AWS sandbox.
-
-## Next product upgrades
-
-- Cloud sync using Cloudflare Workers + D1
-- Authentication
-- Rich code editors and Terraform validators
-- GitHub repository evidence checks
-- Spaced repetition and mistake review
-- Instructor/admin content management
+After redeploying, open `/index.html` once. Then hard-refresh the root page.
